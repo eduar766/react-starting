@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Proyecto de React</title>
+	<script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+	<script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js" ></script>
+</head>
+<body>
+	<h2>Proyecto React</h2>
+	<div id="marco"></div>
+
+	<script type="text/babel">
+		class Principal extends React.Component{
+			render(){
+				return(
+					<div>
+						<h2> Este es un texto generado desde React</h2>
+						<IntroducirTexto/>
+					</div>
+				);
+			}
+		}
+
+		class IntroducirTexto extends React.Component{
+			constructor(){
+					super();
+					this.state = {
+						nombre: "Aquí va tu nombre"
+					}
+			}
+
+			render(){
+				return(
+					<div>
+						<h4> Saludos nombre </h4>
+						<h2> Otro Texto</h2>
+					</div>
+				);
+			}
+		}
+
+		ReactDOM.render(<Principal/>, document.getElementById('marco'));
+	</script>
+
+</body>
+</html>
