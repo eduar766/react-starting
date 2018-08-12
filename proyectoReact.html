@@ -13,11 +13,44 @@
 
 	<script type="text/babel">
 		class Principal extends React.Component{
+			constructor(){
+					super();
+					this.state = {
+						numero: 0
+					}
+			}
+
+			masUno(){
+				this.setState({ numero: this.state.numero + 1});
+			}
+
+			menosUno(){
+				var num = this.state.numero
+				if (num <= 0){
+					num = 0
+				} else {
+					this.setState({ numero: num - 1});
+				}
+			}
+
 			render(){
 				return(
 					<div>
 						<h2> Este es un texto generado desde React</h2>
 						<IntroducirTexto/>
+						<h3>{ this.state.numero }</h3>
+						<ModificarNumero funAumentar={ this.masUno.bind(this) } funReducir={ this.menosUno.bind(this) }/>
+					</div>
+				);
+			}
+		}
+
+		class ModificarNumero extends React.Component{
+			render(){
+				return(
+					<div>
+						<button onClick={this.props.funAumentar}> Aumentar </button>
+						<button onClick={this.props.funReducir}> Reducir</button>
 					</div>
 				);
 			}
